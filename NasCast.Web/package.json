@@ -1,0 +1,11 @@
+{
+	"name": "nascast",
+	"description": "NasCast",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"express": "3.4.7",
+		"connect": "2.12.0",
+		"pg": "2.9.0"
+	}
+}

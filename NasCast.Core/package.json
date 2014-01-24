@@ -1,0 +1,10 @@
+{
+  "name": "NasCast.Core",
+  "version": "0.0.0",
+  "description": "NasCast.Core",
+  "main": "app.js",
+  "author": {
+    "name": "Matt",
+    "email": ""
+  }
+}
