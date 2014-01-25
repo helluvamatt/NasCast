@@ -1,0 +1,14 @@
+{
+  "name": "Common",
+  "version": "0.0.0",
+  "description": "Common",
+  "main": "app.js",
+  "author": {
+    "name": "Matt",
+    "email": ""
+  },
+  "dependencies": {
+    "pg": "~2.11.1",
+    "log": "~1.4.0"
+  }
+}

@@ -16,10 +16,11 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Content Include="session_roles.sql" />
+    <Content Include="session_setup.sql" />
     <Content Include="web.config.json" />
     <Content Include="package.json" />
     <Compile Include="app.js" />
-    <Compile Include="connect-postgres.js" />
     <Content Include="chromecast\receiver.html" />
   </ItemGroup>
   <ItemGroup>

@@ -3,14 +3,15 @@ var pg = require('pg');
 var express = require('express');
 var fs = require('fs');
 
-var PostgreStore = require('./connect-postgres.js');
+var PostgreStore = require('../Common/connect-postgres.js');
 var PgConfig = require('./pg-config.js');
 
 // configuration loaded in memory
 var config = {};
 
 // load configuration
-fs.readFile('config.json', function(err, data) {
+console.log("Loading configuration...");
+fs.readFile('web.config.json', function(err, data) {
 	
 	// read configuration
 	if (!err && data)
