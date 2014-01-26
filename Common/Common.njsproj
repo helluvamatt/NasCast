@@ -30,6 +30,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="media_database.sql" />
     <Content Include="package.json" />
   </ItemGroup>
   <ItemGroup>

@@ -33,6 +33,8 @@ var MediaScanner = module.exports = function(options, logger, mediaDatabase) {
 			if (regexp.test(subPath)) {
 				var item = XRegExp.exec(subPath, regexp);
 				self.logger.debug("   Success: %s", JSON.stringify(item));
+				
+				
 			} else {
 				self.logger.debug("   Failed.");
 			}
