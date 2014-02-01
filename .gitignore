@@ -202,3 +202,4 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+/NasCast.Web/chromecast/appids.js

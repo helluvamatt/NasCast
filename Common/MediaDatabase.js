@@ -1,65 +1,33 @@
 ﻿/*
  *	MediaDatabase
  */
-var Bookshelf = require('bookshelf');
-var Knex = require('knex');
 var _ = require('lodash');
+var colors = require('colors');
+var xbmc = require('xbmc-ws');
 
-var MediaDatabase = module.exports = function MediaDatabase(options) {
+var MediaDatabase = module.exports = function MediaDatabase(options, logger) {
 
 	if (typeof options !== 'object') {
 		throw TypeError;
 	}
-
 	var self = this;
 
-	var dbConfig = options.database.get("global");
-	this.DB = Bookshelf.initialize({
-		client: dbConfig.type,
-		connection: _.omit(dbConfig, 'type')
-	});
+	self.logger = logger;
 	
-	this.Item = this.DB.Model.extend({
-		tableName: 'nascast_media_items',
-		parent: function() {
-			this.belongsTo(self.Container);
-		}
-	});
+	self.queue = [];
 	
-	this.Container = this.DB.Model.extend({
-		tableName: 'nascast_media_containers',
-		parent: function() {
-			return this.belongsTo(self.Container);
-		},
-		items: function() {
-			return this.hasMany(self.Item);
-		},
-		children: function() {
-			return this.hasMany(self.Container);
-		}
-	});
+	// define XBMC connection
+	this.xbmc = xbmc(options.host || 'localhost', options.port || 9090);
+	// TODO xbmc-ws needs better connection error handling
+	//console.log(("Failed to connect to XBMC: " + e.message).red);
+	
 };
 
-MediaDatabase.prototype.getItem = function(id) {
-
-};
-
-MediaDatabase.prototype.getItemByPath = function(path) {
-
-};
-
-MediaDatabase.prototype.getItems = function(parent) {
-
-};
-
-MediaDatabase.prototype.storeItem = function(mediaItem) {
-
-};
-
-MediaDatabase.prototype.getContainers = function(parent) {
-
-};
-
-MediaDatabase.prototype.storeContainer = function(container) {
-
+MediaDatabase.prototype.getMovies = function(args, fn) {
+	if (this.xbmc) {
+		this.xbmc.run('VideoLibrary.GetMovies')(args, fn);
+	}
+	else {
+		// TODO enqueue
+	}
 };

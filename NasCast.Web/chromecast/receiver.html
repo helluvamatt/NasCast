@@ -4,7 +4,7 @@
 	<script src="appids.js"></script>
 	<script type="text/javascript">
 
-		var receiver = new cast.receiver.Receiver(appId, [cast.receiver.RemoteMedia.NAMESPACE], "", 5);
+		var receiver = new cast.receiver.Receiver(appids.nascast, [cast.receiver.RemoteMedia.NAMESPACE], "", 5);
 		var remoteMedia = new cast.receiver.RemoteMedia();
 		remoteMedia.addChannelFactory(receiver.createChannelFactory(cast.receiver.RemoteMedia.NAMESPACE));
 		receiver.start();

@@ -31,6 +31,7 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="MediaScanner.js" />
+    <Compile Include="MediaScraper.js" />
     <Content Include="core.config.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />

@@ -11,12 +11,10 @@ var Log = require('log');
 var XRegExp = require('xregexp').XRegExp;
 var walk = require('walk').walk;
 
-var MediaDatabase = require('../Common/MediaDatabase.js');
-
 // ----------------
 // MediaScanner API
 // ----------------
-var MediaScanner = module.exports = function(options, logger, mediaDatabase) {
+var MediaScanner = module.exports = function(options, mediaDatabase) {
 
 	if (typeof options !== 'object') {
 		throw TypeError;
@@ -24,6 +22,7 @@ var MediaScanner = module.exports = function(options, logger, mediaDatabase) {
 
 	var self = this;
 	
+	this.scraper = new MediaScraper(options);
 	this.logger = new Log((options.logging && options.logging.level) || 'WARNING', fs.createWriteStream((options.logging && options.logging.file) || 'scanner.log'));
 
 	var _check = function(mediaDef, subPath) {
@@ -32,9 +31,16 @@ var MediaScanner = module.exports = function(options, logger, mediaDatabase) {
 			var regexp = XRegExp(mediaDef.pathLayouts[index]);
 			if (regexp.test(subPath)) {
 				var item = XRegExp.exec(subPath, regexp);
-				self.logger.debug("   Success: %s", JSON.stringify(item));
-				
-				
+				self.logger.debug("Success: %s", JSON.stringify(item));
+				new mediaDatabase.Item({}).fetch().then(function(model) {
+					if (typeof model === 'undefined') {
+						// TODO Scrape and insert
+						
+					} else {
+						// Already in, do nothing
+						self.logger.debug("Already in database: %s", JSON.stringify(item));
+					}
+				});
 			} else {
 				self.logger.debug("   Failed.");
 			}

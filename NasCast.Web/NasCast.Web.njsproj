@@ -12,10 +12,33 @@
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <NodeExePath />
+    <NodeExeArguments />
+    <ScriptArguments>
+    </ScriptArguments>
+    <NodejsPort />
+    <StartWebBrowser>True</StartWebBrowser>
+    <LaunchUrl />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Compile Include="assets\js\app.js" />
+    <Compile Include="assets\js\bootstrap.js" />
+    <Compile Include="assets\js\bootstrap.min.js" />
+    <Compile Include="assets\js\jquery-1.11.0.min.js" />
+    <Compile Include="chromecast\appids.js" />
+    <Content Include="assets\css\bootstrap-theme.css" />
+    <Content Include="assets\css\bootstrap-theme.css.map" />
+    <Content Include="assets\css\bootstrap-theme.min.css" />
+    <Content Include="assets\css\bootstrap.css" />
+    <Content Include="assets\css\bootstrap.css.map" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="public\index.html" />
     <Content Include="session_roles.sql" />
     <Content Include="session_setup.sql" />
     <Content Include="web.config.json" />
@@ -26,9 +49,11 @@
   <ItemGroup>
     <Folder Include="assets\" />
     <Folder Include="assets\css\" />
+    <Folder Include="assets\fonts\" />
     <Folder Include="assets\img\" />
     <Folder Include="assets\js\" />
     <Folder Include="chromecast" />
+    <Folder Include="public\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
